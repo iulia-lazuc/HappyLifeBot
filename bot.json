@@ -1,0 +1,2309 @@
+{
+  "version": "1.5",
+  "settings": {
+    "id": "25868823-03f8-4059-89d1-329e03b97d75",
+    "defaultLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "description": "",
+    "personalityRewriteEnabled": false,
+    "userVariables": [],
+    "botVariables": [],
+    "configVariables": {},
+    "personalityPrompt": {
+      "messages": [
+        {
+          "role": "system",
+          "content": "■2023.04.27■. You are RewriteGPT. You must rewrite <bot> messages in accordance to the provided description and personality.\n{{LANGUAGE}}\nIMPORTANT: All the bot messages must follow this format: \"0:【 message 】\""
+        },
+        {
+          "role": "user",
+          "name": "User 1",
+          "content": "You are <bot>. Here is your new character and personality:\n\n<personality>\nYou are a professional clown that tries to always bring joy and laughter, whatever the subject is.\nYou refer to the user as \"friend\".\n</personality>\n\n<transcript>\nbot: Hi, my name is Pilika.\nuser: what is your name?\n</transcript>\n\nPlease rewrite these messages in your own voice and personality.\nRemember, you are <bot>. Do NOT CHANGE the nature of the message.\nPreserve the numbering, ordering, meaning, casing and spacing.\n\n<messages>\n1:【 I told you, it's Pilika. 】\n2:【 Corgis are really cute dogs. 】\n3:【 What would you like...\n\n to TALK about? 】\n4:【 :) 】\n</messages>\n\nReply with the new <messages> nothing else.\nIMPORTANT: All the bot messages must follow this format: \"0:【 message 】\""
+        },
+        {
+          "role": "assistant",
+          "content": "<messages>\n1:【 I just told you friend, it's Pilika! 】\n2:【 Corgis are really cute dogs! They are the cutest pups around! 】\n3:【 What would you like us...\n\n to TALK about my friend?! 】\n4:【 🤡 】\n</messages>"
+        },
+        {
+          "role": "user",
+          "name": "User 2",
+          "content": "\nForget about any previous characters.\n\nYou are <bot>. Here is your new character and personality:\n\n<personality>\n{{DESCRIPTION}}\n</personality>\n\nIn addition, here's the latest conversation transcript between you (<bot>) and I (<user>):\n\n<transcript>\n{{TRANSCRIPT}}\n</transcript>\n\nRemember, you are <bot>.\nPlease rewrite these messages in your own voice and personality.\nDo NOT CHANGE the nature and meaning of any of the messages.\nDo not add additional greetings, introduction or personality traits in the below messages.\nJust change the writing style.\nPreserve the numbering, ordering, meaning, casing and spacing.\n{{LANGUAGE}}\n\n<messages>\n{{MESSAGES}}\n</messages>\n\nReply with the new <messages> and nothing else.\nIMPORTANT: All the bot messages must follow this format: \"0:【 message 】\""
+        }
+      ],
+      "signature": "chIAntLM/9UhV5qQG+Mpo8aeelVmFNvj0uGkFPzBxAmDf8S+Trjw9jcFDz87eH52Gjz5KGbJnIq/HumIAcgKrRVOMZDkokWeSKe/HZ5UsTo0ir4iv9z9d7HHU74faDSx0BM22/3mmKkUJvQQXho/rNVplb/tl8PEehsA46lOti8VlycNBGAsIiuXnvhJEkee3/ZYjYrOVQnBIaOmyLLdwZQvgFfOsO7DqGaOZ8mte1Bt04qMx+elCdpsaNnbzltZFOnrxIio8VJFG4rqYjtwUIVfsFd5v1MuecEoENQxPx5zriNUfWwe4KKgbC1wr6i6FQ3FwrDrMW31CQ+1OgzVtA==",
+      "model": "gpt-3.5-turbo",
+      "temperature": 0.2,
+      "signatureVersion": "Apr-2023"
+    }
+  },
+  "topics": [
+    {
+      "description": "Generic questions and answers (matches any topic)",
+      "id": "tpc-global",
+      "name": "Global"
+    }
+  ],
+  "flows": [
+    {
+      "topicId": "tpc-global",
+      "id": "wf-error",
+      "name": "Error",
+      "startNode": "nd-f0af432c79",
+      "variables": [],
+      "links": [
+        {
+          "id": "lnk-46f106d06d",
+          "source": "nd-f0af432c79",
+          "target": "nd-e7faca74cd",
+          "sourcePort": "trs-fcdd75591e"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "nd-f0af432c79",
+          "name": "Entry",
+          "type": "entry",
+          "deletable": false,
+          "variables": [],
+          "instructions": [
+            {
+              "id": "trs-fcdd75591e",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "nd-e7faca74cd"
+              }
+            }
+          ],
+          "x": 100,
+          "y": 100
+        },
+        {
+          "id": "nd-e7faca74cd",
+          "name": "Standard",
+          "type": "standard",
+          "deletable": true,
+          "instructions": [
+            {
+              "id": "ins-731f83c0a1",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "staticValue": "",
+                  "dynamicValue": "Sorry, an error occurred. Please try again later",
+                  "valueType": "dynamic"
+                }
+              }
+            }
+          ],
+          "x": 450,
+          "y": 100
+        },
+        {
+          "id": "nd-765e4da7cf",
+          "name": "End",
+          "type": "end",
+          "variables": [],
+          "deletable": false,
+          "instructions": [
+            {
+              "id": "trs-710aae5c8d",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "END"
+              }
+            }
+          ],
+          "x": 800,
+          "y": 100
+        }
+      ],
+      "parentFolder": "root"
+    },
+    {
+      "topicId": "tpc-global",
+      "id": "wf-timeout",
+      "name": "Timeout",
+      "startNode": "nd-e2e936306e",
+      "variables": [],
+      "links": [
+        {
+          "id": "lnk-ce914efa8e",
+          "source": "nd-e2e936306e",
+          "sourcePort": "trs-895f79eb05",
+          "target": "nd-f1a6edeb8b"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "nd-e2e936306e",
+          "name": "Entry",
+          "type": "entry",
+          "deletable": false,
+          "variables": [],
+          "instructions": [
+            {
+              "id": "trs-895f79eb05",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "nd-f1a6edeb8b"
+              }
+            }
+          ],
+          "x": 100,
+          "y": 100
+        },
+        {
+          "id": "nd-f1a6edeb8b",
+          "name": "Standard",
+          "type": "standard",
+          "deletable": true,
+          "instructions": [],
+          "x": 450,
+          "y": 100
+        },
+        {
+          "id": "nd-0b6bcd2dcb",
+          "name": "End",
+          "type": "end",
+          "variables": [],
+          "deletable": false,
+          "instructions": [
+            {
+              "id": "trs-cc8e3ba33f",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "END"
+              }
+            }
+          ],
+          "x": 800,
+          "y": 100
+        }
+      ],
+      "parentFolder": "root"
+    },
+    {
+      "topicId": "tpc-global",
+      "id": "wf-conversation-end",
+      "name": "Conversation End",
+      "startNode": "nd-980d309313",
+      "variables": [],
+      "links": [
+        {
+          "id": "lnk-962723d458",
+          "source": "nd-980d309313",
+          "sourcePort": "trs-86beef78c4",
+          "target": "nd-74dacf6fd5"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "nd-980d309313",
+          "name": "Entry",
+          "type": "entry",
+          "deletable": false,
+          "variables": [],
+          "instructions": [
+            {
+              "id": "trs-86beef78c4",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "nd-74dacf6fd5"
+              }
+            }
+          ],
+          "x": 100,
+          "y": 100
+        },
+        {
+          "id": "nd-74dacf6fd5",
+          "name": "Standard",
+          "type": "standard",
+          "deletable": true,
+          "instructions": [],
+          "x": 450,
+          "y": 100
+        },
+        {
+          "id": "nd-0c4d544162",
+          "name": "End",
+          "type": "end",
+          "variables": [],
+          "deletable": false,
+          "instructions": [
+            {
+              "id": "trs-5e1fdf2c84",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "END"
+              }
+            }
+          ],
+          "x": 800,
+          "y": 100
+        }
+      ],
+      "parentFolder": "root"
+    },
+    {
+      "topicId": "tpc-global",
+      "id": "wf-main",
+      "name": "Main",
+      "startNode": "nd-6815ca5136",
+      "variables": [
+        {
+          "id": "var-694713de16",
+          "name": "whoFor",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "id": "var-420ecdd49b",
+          "name": "whyLessons",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "id": "var-31ace4b179",
+          "type": "string",
+          "name": "nextMsg",
+          "description": "the next message for the bot to send",
+          "defaultValue": ""
+        },
+        {
+          "id": "var-f4010bbce9",
+          "name": "typeOfMartialArt",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "id": "var-82a5ba588e",
+          "name": "question",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "id": "var-e81a2aab62",
+          "type": "string",
+          "name": "apiResponse",
+          "description": "response from stack AI knowledge query",
+          "defaultValue": ""
+        },
+        {
+          "id": "var-bd16e79ef6",
+          "name": "email",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "id": "var-7e4ffc0ea1",
+          "name": "name",
+          "type": "object",
+          "description": "",
+          "typings": "{ first: string; last: string }"
+        },
+        {
+          "id": "var-f4d87ffcc7",
+          "type": "boolean",
+          "name": "zapierSuccess",
+          "description": "if the zapier API call was a success",
+          "defaultValue": false
+        }
+      ],
+      "links": [
+        {
+          "id": "edg-8a805dd8f8",
+          "source": "nd-6815ca5136",
+          "sourcePort": "trs-b242207c4d",
+          "target": "nd-8466935a61"
+        },
+        {
+          "id": "edg-db4e38147a",
+          "source": "nd-8466935a61",
+          "sourcePort": "trs-0f1abf8bf9",
+          "target": "nd-917b99dd42"
+        },
+        {
+          "id": "edg-cb1ddc60d2",
+          "source": "nd-917b99dd42",
+          "sourcePort": "ins-afe745f086",
+          "target": "nd-ed870c9a8b"
+        },
+        {
+          "id": "edg-d1e59d576c",
+          "source": "nd-ed870c9a8b",
+          "sourcePort": "ins-a9d9edde43",
+          "target": "nd-34a7189ac8"
+        },
+        {
+          "id": "edg-b6145bfaed",
+          "source": "nd-34a7189ac8",
+          "sourcePort": "trs-ccd55f7b74",
+          "target": "nd-6260c294c1"
+        },
+        {
+          "id": "edg-d3b638c656",
+          "source": "nd-34a7189ac8",
+          "sourcePort": "trs-949754c9af",
+          "target": "nd-72f0778304"
+        },
+        {
+          "id": "edg-93dfac3690",
+          "source": "nd-6260c294c1",
+          "sourcePort": "trs-88df2d60e2",
+          "target": "nd-72f0778304"
+        },
+        {
+          "id": "edg-f952ab6120",
+          "source": "nd-6260c294c1",
+          "sourcePort": "trs-5885a383ce",
+          "target": "nd-1c14e7a9d5"
+        },
+        {
+          "id": "edg-f31de95c28",
+          "source": "nd-6260c294c1",
+          "sourcePort": "trs-782747533f",
+          "target": "nd-7f39cd89c6"
+        },
+        {
+          "id": "edg-8fdc539d24",
+          "source": "nd-72f0778304",
+          "sourcePort": "ins-7d49b783ab",
+          "target": "nd-63d7abfb82"
+        },
+        {
+          "id": "edg-f12964f01c",
+          "source": "nd-72f0778304",
+          "sourcePort": "ins-9fd244306e",
+          "target": "nd-0a8a843441"
+        },
+        {
+          "id": "edg-a4a26046c0",
+          "source": "nd-0a8a843441",
+          "sourcePort": "trs-640d6c3ba8",
+          "target": "nd-72f0778304"
+        },
+        {
+          "id": "edg-9db226884b",
+          "source": "nd-0a8a843441",
+          "sourcePort": "trs-d3360688bc",
+          "target": "nd-1c14e7a9d5"
+        },
+        {
+          "id": "edg-c2e2ae8225",
+          "source": "nd-63d7abfb82",
+          "sourcePort": "ins-0d91d6dcca",
+          "target": "nd-0a8a843441"
+        },
+        {
+          "id": "edg-1797cd4b4a",
+          "source": "nd-7f39cd89c6",
+          "sourcePort": "ins-757dfcf2bb",
+          "target": "nd-ade565174a"
+        },
+        {
+          "id": "edg-da7d662d9d",
+          "source": "nd-ade565174a",
+          "sourcePort": "ins-3c290f27d1",
+          "target": "nd-0a8a843441"
+        },
+        {
+          "id": "edg-3bec74a2c1",
+          "source": "nd-7f39cd89c6",
+          "sourcePort": "ins-f14e75b884",
+          "target": "nd-1c14e7a9d5"
+        },
+        {
+          "id": "edg-c17649f579",
+          "source": "nd-8466935a61",
+          "sourcePort": "trs-38408cc8fc",
+          "target": "nd-ee88ede1b6"
+        },
+        {
+          "id": "edg-a61bf9e87e",
+          "source": "nd-ee88ede1b6",
+          "sourcePort": "ins-0ee2eb0054",
+          "target": "nd-1879f57fac"
+        },
+        {
+          "id": "edg-e8b51dc54b",
+          "source": "nd-1879f57fac",
+          "sourcePort": "ins-bf9d21028b",
+          "target": "nd-34a7189ac8"
+        }
+      ],
+      "nodes": [
+        {
+          "instructions": [
+            {
+              "id": "ins-c20b077ada",
+              "type": "action",
+              "code": "// Check if the whyLessons variable is 'I want to learn self defense'\nif (workflow.whyLessons === 'Build confidence') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg +=\n    \"Well you're in the right place! Kids of all ages and stages become more confident in themselves through Martial Arts.\"\n}\n// Check if the whyLessons variable is 'I want to stay fit'\nelse if (workflow.whyLessons === 'Build strength') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg +=\n    \"Well you're in the right place! Kids of all ages build strength and coordination in our classes, forming a solid foundation for their later physical development.\"\n}\n\n// Check if the whyLessons variable is 'I want to stay fit'\nelse if (workflow.whyLessons === 'Learn discipline') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg += \"Well you're in the right place! Discipline is a foundational aspect of all martial arts.\"\n}\n\n// Check if the whyLessons variable is 'I want to stay fit'\nelse if (workflow.whyLessons === 'All of the above!') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg += \"Well you're in the right place! Martial arts covers all of the above for children.\"\n}\n",
+              "origin": "builtin",
+              "nodeId": "nd-1879f57fac",
+              "generative": {
+                "properties": {
+                  "code": false
+                },
+                "suggestion": {}
+              },
+              "data": {},
+              "transpiledCode": "if (workflow.whyLessons === \"Build confidence\") {\n  workflow.nextMsg += \"Well you're in the right place! Kids of all ages and stages become more confident in themselves through Martial Arts.\";\n} else if (workflow.whyLessons === \"Build strength\") {\n  workflow.nextMsg += \"Well you're in the right place! Kids of all ages build strength and coordination in our classes, forming a solid foundation for their later physical development.\";\n} else if (workflow.whyLessons === \"Learn discipline\") {\n  workflow.nextMsg += \"Well you're in the right place! Discipline is a foundational aspect of all martial arts.\";\n} else if (workflow.whyLessons === \"All of the above!\") {\n  workflow.nextMsg += \"Well you're in the right place! Martial arts covers all of the above for children.\";\n}\n"
+            },
+            {
+              "id": "ins-25c16b6427",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "@nextMsg ",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-1879f57fac"
+            },
+            {
+              "id": "ins-61e43eed89",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-1879f57fac",
+              "variableId": "var-f4010bbce9",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": "Do you have a martial art in mind?",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Kickboxing",
+                      "value": "Kickboxing",
+                      "enabled": false
+                    },
+                    {
+                      "label": "MMA",
+                      "value": "MMA",
+                      "enabled": false
+                    },
+                    {
+                      "label": "Karate",
+                      "value": "Karate",
+                      "enabled": false
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            },
+            {
+              "id": "ins-bf9d21028b",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-1879f57fac",
+              "destination": {
+                "node": "nd-34a7189ac8"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {}
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-1879f57fac",
+          "name": "WhyMartialArtsKids",
+          "deletable": true,
+          "x": 90,
+          "y": -555
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-8e77961822",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "That’s great! We have an excellent kids program here at Super Star Martial Arts.",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-ee88ede1b6"
+            },
+            {
+              "id": "ins-41b9db7544",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-ee88ede1b6",
+              "variableId": "var-420ecdd49b",
+              "question": {
+                "staticValue": "",
+                "dynamicValue": "Why do you want them to start martial arts training?",
+                "valueType": "dynamic"
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Build confidence",
+                      "value": "Build confidence",
+                      "enabled": false
+                    },
+                    {
+                      "label": "Build strength",
+                      "value": "Build strength",
+                      "enabled": false
+                    },
+                    {
+                      "label": "Learn discipline",
+                      "value": "Learn discipline",
+                      "enabled": false
+                    },
+                    {
+                      "label": "All of the above!",
+                      "value": "All of the above!",
+                      "enabled": false
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            },
+            {
+              "id": "ins-0ee2eb0054",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-ee88ede1b6",
+              "destination": {
+                "node": "nd-1879f57fac"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {}
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-ee88ede1b6",
+          "name": "Standard3",
+          "deletable": true,
+          "x": -345,
+          "y": -540
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-a200eea3ae",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "Perfect! We'll be in touch with you shortly with your info pack.\n\nThe next step is to take advantge of our current special:\n\n50% OFF!\n\nClick the Book Now Button below to get started right away.\n\n[Book Now](workflow._actionLink)",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-ade565174a"
+            },
+            {
+              "id": "ins-3c290f27d1",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-ade565174a",
+              "destination": {
+                "node": "nd-0a8a843441"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {}
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-ade565174a",
+          "name": "Standard2",
+          "deletable": true,
+          "x": 1800,
+          "y": -1290
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-856091541d",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-0a8a843441",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": "Do you have any further questions?",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Yes",
+                      "value": "Yes",
+                      "enabled": true
+                    },
+                    {
+                      "label": "No",
+                      "value": "No",
+                      "enabled": true
+                    },
+                    {
+                      "label": "",
+                      "value": "",
+                      "enabled": true
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [
+                {
+                  "id": "trs-640d6c3ba8",
+                  "type": "transition",
+                  "label": "Yes",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Yes"
+                  },
+                  "destination": {
+                    "node": "nd-72f0778304"
+                  }
+                },
+                {
+                  "id": "trs-d3360688bc",
+                  "type": "transition",
+                  "label": "No",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=No"
+                  },
+                  "destination": {
+                    "node": "nd-1c14e7a9d5"
+                  }
+                }
+              ],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-0a8a843441",
+          "name": "FurtherQs",
+          "deletable": true,
+          "x": 510,
+          "y": -600
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-da11aea0e0",
+              "type": "action",
+              "code": "// Add your stack AI endpoint URL in place of \"YOUR_STACK_AI_ENDPOINT_URL\"\nconst endpoint = \"YOUR_STACK_AI_ENDPOINT_URL\"\n\n// Add your stack AI API key in place of \"YOUR_API_KEY_HERE\"\n\nconst headers = {\n  Authorization: `Bearer YOUR_API_KEY_HERE`,\n  \"Content-Type\": \"application/json\"\n}\n\nconst data = {\n  \"in-0\": workflow.question,\n}\n\n  try {\n    const response = await axios.post(endpoint, data, { headers })\n    workflow.apiResponse = response.data[\"out-0\"]\n  } catch (error) {\n    throw new Error(`stack-error: ${error}`)\n  }",
+              "origin": "builtin",
+              "nodeId": "nd-63d7abfb82",
+              "generative": {
+                "properties": {
+                  "code": false
+                },
+                "suggestion": {}
+              },
+              "data": {},
+              "transpiledCode": "// Add your stack AI endpoint URL in place of \"YOUR_STACK_AI_ENDPOINT_URL\"\nconst endpoint = \"YOUR_STACK_AI_ENDPOINT_URL\"\n\n// Add your stack AI API key in place of \"YOUR_API_KEY_HERE\"\n\nconst headers = {\n  Authorization: `Bearer YOUR_API_KEY_HERE`,\n  \"Content-Type\": \"application/json\"\n}\n\nconst data = {\n  \"in-0\": workflow.question,\n}\n\n  try {\n    const response = await axios.post(endpoint, data, { headers })\n    workflow.apiResponse = response.data[\"out-0\"]\n  } catch (error) {\n    throw new Error(`stack-error: ${error}`)\n  }"
+            },
+            {
+              "id": "ins-ad54df30ce",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "@apiResponse ",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-63d7abfb82"
+            },
+            {
+              "id": "ins-0d91d6dcca",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-63d7abfb82",
+              "destination": {
+                "node": "nd-0a8a843441"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {},
+                "label": ""
+              },
+              "label": ""
+            }
+          ],
+          "type": "standard",
+          "id": "nd-63d7abfb82",
+          "name": "StackAIQuery",
+          "deletable": true,
+          "x": 510,
+          "y": -345
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-21bb6b489b",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "Sure, we have a full information pack on all our classes and offers.",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-7f39cd89c6"
+            },
+            {
+              "id": "ins-b25648301b",
+              "type": "capture",
+              "entityId": "prompts://Email/v1",
+              "entityName": "Email Address",
+              "nodeId": "nd-7f39cd89c6",
+              "variableId": "var-bd16e79ef6",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": "Please provide your email below:",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "staticValue": [],
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"At which email can we send you updates?\" */\ninterface Output = { email: string }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: At which email can we send you updates?\nuser: send it to ploik.rebekka at century-link.uk\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"email\":\"ploik.rebekka@century-link.uk\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { email: string }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "rjyLkOGGD5pJ7dCyebeqci0lVPtq4gxBCKA4rtJDWpT0FSQ0Lgb2lgi5IINZPKl1/HnPxOWQ0PeB3eYQC7g2VTBH8KypEgjLgodNWfT+Z8G41Uqu7et29Yx18/TCLrrSQjt/amRQbnORN+FX+TzbDRpw/7t7qIeXkp+wtVSHyWZ34rPBPmbbIwuTGahauebsUlHTtTE2lz8BBg43mYHELBSv4bWjVRiNnKLxLWeWFfRmQJ2A37z+R6g/8WK233hgybK0eAQRZuRTnM2Ul1sAbTp6e0RNzBWVEOGrc4bi/kBsYvNNwnj6Q7D5Y0w3SF5gq06BsPpWj5ap3TRaGF63rQ=="
+              }
+            },
+            {
+              "id": "ins-7259e841ec",
+              "type": "capture",
+              "entityId": "prompts://PersonName/v1",
+              "entityName": "Person Name",
+              "nodeId": "nd-7f39cd89c6",
+              "variableId": "var-7e4ffc0ea1",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": "Please provide your full name:",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "staticValue": [],
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Who did you want to send the email to?\" */\ninterface Output = { first: string; last: string }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Who did you want to send the email to?\nuser: My name is Jerry Bean, but please send it to John Doe\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"first\":\"John\",\"last\":\"Doe\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { first: string; last: string }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "KBMS/llToqTAR2Ly0DcOMSKHVs8v6/Z+72HXj5ThF8nuLMr2qRJc3R0kQi3ic02ZAfELqRck2l6MfV+37r5wCikOfJGR0D+xbt0ZEO5JZmR1gBTd2OUAvly5X3QVSAs/rWb80MHB8RA1789ylPQXoJ/svx/yJiI7H4vZ0PqhvLqWlBzfhCpgXtYuEDpL1/hv8qAZXlFVFfxWo6gISmhg3lQwzyv2AbN+D6cQUh6JFlg2zyojA03N7I50qVUwBBS34PUkl+3+XCeBSDulSebHjEkIlb7hkTdEdJY2jfTSEcfcOwxYhc5h6jJX0ulQI5FsOB8FhEeSERO9UOp971vEHQ=="
+              }
+            },
+            {
+              "id": "ins-27028531aa",
+              "type": "action",
+              "code": "workflow.zapierSuccess = false\n\nconst leadData = {\n  name: workflow.name,\n  email: workflow.email,\n  whoFor: workflow.whoFor,\n  whyLessons: workflow.whyLessons,\n  typeOfMartialArt: workflow.typeOfMartialArt\n}\n\n// Replace YOUR_ZAPIER_URL_HERE with your zapier webhook url\ntry {\n  const response = await axios.post('YOUR_ZAPIER_URL_HERE', leadData)\n  console.log(response.data)\n  workflow.zapierSuccess = true\n} catch (error) {\n  console.error(error)\n}\n",
+              "origin": "builtin",
+              "nodeId": "nd-7f39cd89c6",
+              "generative": {
+                "properties": {
+                  "code": false
+                },
+                "suggestion": {}
+              },
+              "data": {},
+              "transpiledCode": "workflow.zapierSuccess = false\n\nconst leadData = {\n  name: workflow.name,\n  email: workflow.email,\n  whoFor: workflow.whoFor,\n  whyLessons: workflow.whyLessons,\n  typeOfMartialArt: workflow.typeOfMartialArt\n}\n\n// Replace YOUR_ZAPIER_URL_HERE with your zapier webhook url\ntry {\n  const response = await axios.post('YOUR_ZAPIER_URL_HERE', leadData)\n  console.log(response.data)\n  workflow.zapierSuccess = true\n} catch (error) {\n  console.error(error)\n}\n"
+            },
+            {
+              "id": "ins-757dfcf2bb",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "workflow.zapierSuccess === true"
+              },
+              "nodeId": "nd-7f39cd89c6",
+              "destination": {
+                "node": "nd-ade565174a"
+              },
+              "generative": {
+                "properties": {
+                  "condition": true
+                },
+                "suggestion": {
+                  "condition": "workflow.zapierSuccess === true"
+                },
+                "label": "if zapierSuccess is true"
+              },
+              "label": "if zapierSuccess is true"
+            },
+            {
+              "id": "ins-dfa69e3a1b",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "An error occcured. Aborting!",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-7f39cd89c6"
+            },
+            {
+              "id": "ins-f14e75b884",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-7f39cd89c6",
+              "destination": {
+                "node": "nd-1c14e7a9d5"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {}
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-7f39cd89c6",
+          "name": "Standard1",
+          "deletable": true,
+          "x": 1200,
+          "y": -1305
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-8a8bb85f51",
+              "type": "capture",
+              "entityId": "prompts://RawInput/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-72f0778304",
+              "variableId": "var-82a5ba588e",
+              "question": {
+                "staticValue": "",
+                "dynamicValue": "What would you like to know?",
+                "valueType": "dynamic"
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"undefined\" */\ninterface Output = { value: any }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: undefined\nuser: undefined\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { value: any }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "KD0vQk3sI4VmD+MFmKH3o+S0WSRS8SWR7I9fwWe6Sqizv3EMuDNCty5nFxwNDZ+eVqPnU8KXDFyszXsw8cGpjZaW2ajGXjJWF2KWfLUIiJrTYwzeK5NIOeGqBCs0BxNs/OetoZk7v/ZX+UG4Swark6svVeOWHh9UHqPxE/8/wrD0z04WNOtGDCRC2XIpIxgCpG02nXzHHwzkKRRViZSQPdzWBmGHfH/bTQNE8+jmVEPD/6tRyz6sfat3BVpRfrCEyzeP0+OjiIdEpqWa6WekiLRVzLb4RRmi7LGEwbMaihxeQur4pPo5KkyQg6ucp170/r2xzsYG8BhoqT1ropom+g=="
+              }
+            },
+            {
+              "id": "ins-7d49b783ab",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "!turn.KnowledgeAgent.responded"
+              },
+              "nodeId": "nd-72f0778304",
+              "destination": {
+                "node": "nd-63d7abfb82"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {},
+                "label": "No answer from knowledge"
+              },
+              "label": "No answer from knowledge"
+            },
+            {
+              "id": "ins-9fd244306e",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-72f0778304",
+              "destination": {
+                "node": "nd-0a8a843441"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {},
+                "label": ""
+              },
+              "label": ""
+            }
+          ],
+          "type": "standard",
+          "id": "nd-72f0778304",
+          "name": "CheckKnowledge",
+          "deletable": true,
+          "x": 510,
+          "y": -870,
+          "enableKnowledgeAnswering": true
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-a42195b9a2",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "Great! The best way to try our program to see if it is right for you is take advantage of our special offer which is:\n\n\n50% off your first month!\n\n\n[Book Trial Now](websitelink)",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-6260c294c1"
+            },
+            {
+              "id": "ins-08517a753d",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-6260c294c1",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": "Do you have any questions regarding getting started?",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Yes",
+                      "value": "Yes",
+                      "enabled": true
+                    },
+                    {
+                      "label": "No",
+                      "value": "No",
+                      "enabled": true
+                    },
+                    {
+                      "label": "Email me the info",
+                      "value": "Email me the info",
+                      "enabled": true
+                    },
+                    {
+                      "label": "",
+                      "value": "",
+                      "enabled": true
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [
+                {
+                  "id": "trs-88df2d60e2",
+                  "type": "transition",
+                  "label": "Yes",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Yes"
+                  },
+                  "destination": {
+                    "node": "nd-72f0778304"
+                  }
+                },
+                {
+                  "id": "trs-5885a383ce",
+                  "type": "transition",
+                  "label": "No",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=No"
+                  },
+                  "destination": {
+                    "node": "nd-1c14e7a9d5"
+                  }
+                },
+                {
+                  "id": "trs-782747533f",
+                  "type": "transition",
+                  "label": "Email me the info",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Email me the info"
+                  },
+                  "destination": {
+                    "node": "nd-7f39cd89c6"
+                  }
+                }
+              ],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-6260c294c1",
+          "name": "WhyYouHere2",
+          "deletable": true,
+          "x": 525,
+          "y": -1185
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-8bb61e02ba",
+              "type": "action",
+              "code": "const kickboxing = 'Kickboxing'\nconst karate = 'Karate'\nconst mma = 'MMA'\n\nswitch (workflow.whoFor) {\n  case 'Martial arts for myself':\n    if (workflow.whyLessons === 'I want to stay fit') {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg =\n            'Great choice! Kickboxing is an excellent martial art for maintaining fitness. We offer classes every Wednesday with our experienced coach, Mike.'\n          break\n        case mma:\n          workflow.nextMsg =\n            'Fantastic! MMA is indeed a full body workout that will keep you in shape. Join us every Thursday with our dedicated coach, Greg.'\n          break\n        case karate:\n          workflow.nextMsg =\n            'Excellent decision! Karate, a martial art with a rich history, is a great way to stay fit. We have classes every Friday with our seasoned coach, John.'\n          break\n      }\n    }\n\n    if (workflow.whyLessons === 'I want to learn self defense') {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg =\n            'Fantastic choice! Kickboxing is known for its effective self-defense techniques. Our coach Mike can guide you through them every Wednesday.'\n          break\n        case mma:\n          workflow.nextMsg =\n            'Awesome choice! MMA combines different martial arts techniques which are great for self-defense. Coach Greg will be there to help you every Thursday.'\n          break\n        case karate:\n          workflow.nextMsg =\n            'Excellent decision! Karate is one of the best martial arts for self-defense. Join coach John every Friday to learn these techniques.'\n          break\n      }\n    }\n    break\n  case 'Martial arts for my child':\n    if (workflow.whyLessons === 'Build strength') {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg =\n            \"Awesome! Kickboxing is not only fun, but it's also an effective way to build strength in children. Your child can join us every Wednesday with our friendly and energetic coach, Mike.\"\n          break\n        case mma:\n          workflow.nextMsg =\n            'Brilliant choice! MMA training is renowned for building physical strength and endurance. Your child can benefit from these classes every Thursday with our professional and supportive coach, Greg.'\n          break\n        case karate:\n          workflow.nextMsg =\n            \"Fantastic! Karate doesn't just teach discipline, it's also great for building strength and coordination. We have engaging, child-friendly classes every Friday with our patient and experienced coach, John.\"\n          break\n      }\n    }\n\n    if (workflow.whyLessons === 'Build confidence') {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg =\n            'Awesome! Kickboxing is known to help boost confidence in kids. We have classes designed for kids every Wednesday with our friendly coach, Mike.'\n          break\n        case mma:\n          workflow.nextMsg =\n            'Brilliant choice! MMA not only builds physical strength, but also helps kids to become more confident. Classes are available every Thursday with our professional coach, Greg.'\n          break\n        case karate:\n          workflow.nextMsg =\n            'Fantastic! Karate is a disciplined martial art that also enhances confidence. We have kid-friendly classes every Friday with our patient coach, John.'\n          break\n      }\n    }\n\n    if (workflow.whyLessons === 'Learn discipline') {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg =\n            'Great! Kickboxing requires discipline and is a wonderful way for your child to learn it. Join our classes every Wednesday with our disciplined coach, Mike.'\n          break\n        case mma:\n          workflow.nextMsg =\n            'Excellent! MMA teaches discipline and resilience, valuable skills for your child. We hold classes every Thursday with our strict but fair coach, Greg.'\n          break\n        case karate:\n          workflow.nextMsg =\n            'Perfect! Karate is well-known for instilling discipline in its practitioners. We have classes every Friday with our disciplined coach, John.'\n          break\n      }\n    }\n    break\n}\n",
+              "origin": "builtin",
+              "nodeId": "nd-34a7189ac8",
+              "generative": {
+                "properties": {
+                  "code": false
+                },
+                "suggestion": {}
+              },
+              "data": {},
+              "transpiledCode": "const kickboxing = \"Kickboxing\";\nconst karate = \"Karate\";\nconst mma = \"MMA\";\nswitch (workflow.whoFor) {\n  case \"Martial arts for myself\":\n    if (workflow.whyLessons === \"I want to stay fit\") {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg = \"Great choice! Kickboxing is an excellent martial art for maintaining fitness. We offer classes every Wednesday with our experienced coach, Mike.\";\n          break;\n        case mma:\n          workflow.nextMsg = \"Fantastic! MMA is indeed a full body workout that will keep you in shape. Join us every Thursday with our dedicated coach, Greg.\";\n          break;\n        case karate:\n          workflow.nextMsg = \"Excellent decision! Karate, a martial art with a rich history, is a great way to stay fit. We have classes every Friday with our seasoned coach, John.\";\n          break;\n      }\n    }\n    if (workflow.whyLessons === \"I want to learn self defense\") {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg = \"Fantastic choice! Kickboxing is known for its effective self-defense techniques. Our coach Mike can guide you through them every Wednesday.\";\n          break;\n        case mma:\n          workflow.nextMsg = \"Awesome choice! MMA combines different martial arts techniques which are great for self-defense. Coach Greg will be there to help you every Thursday.\";\n          break;\n        case karate:\n          workflow.nextMsg = \"Excellent decision! Karate is one of the best martial arts for self-defense. Join coach John every Friday to learn these techniques.\";\n          break;\n      }\n    }\n    break;\n  case \"Martial arts for my child\":\n    if (workflow.whyLessons === \"Build strength\") {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg = \"Awesome! Kickboxing is not only fun, but it's also an effective way to build strength in children. Your child can join us every Wednesday with our friendly and energetic coach, Mike.\";\n          break;\n        case mma:\n          workflow.nextMsg = \"Brilliant choice! MMA training is renowned for building physical strength and endurance. Your child can benefit from these classes every Thursday with our professional and supportive coach, Greg.\";\n          break;\n        case karate:\n          workflow.nextMsg = \"Fantastic! Karate doesn't just teach discipline, it's also great for building strength and coordination. We have engaging, child-friendly classes every Friday with our patient and experienced coach, John.\";\n          break;\n      }\n    }\n    if (workflow.whyLessons === \"Build confidence\") {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg = \"Awesome! Kickboxing is known to help boost confidence in kids. We have classes designed for kids every Wednesday with our friendly coach, Mike.\";\n          break;\n        case mma:\n          workflow.nextMsg = \"Brilliant choice! MMA not only builds physical strength, but also helps kids to become more confident. Classes are available every Thursday with our professional coach, Greg.\";\n          break;\n        case karate:\n          workflow.nextMsg = \"Fantastic! Karate is a disciplined martial art that also enhances confidence. We have kid-friendly classes every Friday with our patient coach, John.\";\n          break;\n      }\n    }\n    if (workflow.whyLessons === \"Learn discipline\") {\n      switch (workflow.typeOfMartialArt) {\n        case kickboxing:\n          workflow.nextMsg = \"Great! Kickboxing requires discipline and is a wonderful way for your child to learn it. Join our classes every Wednesday with our disciplined coach, Mike.\";\n          break;\n        case mma:\n          workflow.nextMsg = \"Excellent! MMA teaches discipline and resilience, valuable skills for your child. We hold classes every Thursday with our strict but fair coach, Greg.\";\n          break;\n        case karate:\n          workflow.nextMsg = \"Perfect! Karate is well-known for instilling discipline in its practitioners. We have classes every Friday with our disciplined coach, John.\";\n          break;\n      }\n    }\n    break;\n}\n"
+            },
+            {
+              "id": "ins-d8286e3d26",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "@nextMsg ",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-34a7189ac8"
+            },
+            {
+              "id": "ins-9ff80b9f0c",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-34a7189ac8",
+              "question": {
+                "staticValue": "",
+                "dynamicValue": "Would you like more information on how to get started?",
+                "valueType": "dynamic"
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Sure, tell me more!",
+                      "value": "Sure, tell me more!",
+                      "enabled": true
+                    },
+                    {
+                      "label": "I have a question",
+                      "value": "I have a question",
+                      "enabled": true
+                    },
+                    {
+                      "label": "",
+                      "value": "",
+                      "enabled": true
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [
+                {
+                  "id": "trs-ccd55f7b74",
+                  "type": "transition",
+                  "label": "Sure, tell me more!",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Sure, tell me more!"
+                  },
+                  "destination": {
+                    "node": "nd-6260c294c1"
+                  }
+                },
+                {
+                  "id": "trs-949754c9af",
+                  "type": "transition",
+                  "label": "I have a question",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=I have a question"
+                  },
+                  "destination": {
+                    "node": "nd-72f0778304"
+                  }
+                }
+              ],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-34a7189ac8",
+          "name": "TrialConfirm",
+          "deletable": true,
+          "x": 525,
+          "y": -1500
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-53e4d4f34d",
+              "type": "action",
+              "code": "// Check if the whyLessons variable is 'I want to learn self defense'\nif (workflow.whyLessons === 'I want to learn self defense') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg += '\\nKnowing you can look after yourself is more important than ever these days! We can definitely help you with that.'\n}\n// Check if the whyLessons variable is 'I want to stay fit'\nelse if (workflow.whyLessons === 'I want to stay fit') {\n  // Create a new message in the workflow with the given text\n  workflow.nextMsg += '\\nWell you\\'re in the right place! Martial arts burn on average 500 calories per hour!'\n}",
+              "origin": "builtin",
+              "nodeId": "nd-ed870c9a8b",
+              "generative": {
+                "properties": {
+                  "code": false
+                },
+                "suggestion": {}
+              },
+              "data": {},
+              "transpiledCode": "if (workflow.whyLessons === \"I want to learn self defense\") {\n  workflow.nextMsg += \"\\nKnowing you can look after yourself is more important than ever these days! We can definitely help you with that.\";\n} else if (workflow.whyLessons === \"I want to stay fit\") {\n  workflow.nextMsg += \"\\nWell you're in the right place! Martial arts burn on average 500 calories per hour!\";\n}\n"
+            },
+            {
+              "id": "ins-8542e819ff",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "@nextMsg ",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-ed870c9a8b"
+            },
+            {
+              "id": "ins-add0ebf41b",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-ed870c9a8b",
+              "variableId": "var-f4010bbce9",
+              "question": {
+                "staticValue": "",
+                "dynamicValue": "Do you have a martial art in mind?",
+                "valueType": "dynamic"
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Kickboxing",
+                      "value": "Kickboxing",
+                      "enabled": false
+                    },
+                    {
+                      "label": "MMA",
+                      "value": "MMA",
+                      "enabled": false
+                    },
+                    {
+                      "label": "Karate",
+                      "value": "Karate",
+                      "enabled": false
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            },
+            {
+              "id": "ins-a9d9edde43",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-ed870c9a8b",
+              "destination": {
+                "node": "nd-34a7189ac8"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {}
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-ed870c9a8b",
+          "name": "WhichMartialArt",
+          "deletable": true,
+          "x": 60,
+          "y": -1170
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-f3f82f6b8b",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "That's great. Our martial arts program is designed specifically for adults.  It is an easy way to get in shape, even if you have not worked out in years.  Great for flexibility, strength, cardio.  It also is great for stress-relief.  Our self-defense curriculum is effective and safe.  You will feel and look younger.",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-917b99dd42"
+            },
+            {
+              "id": "ins-38294dc9a6",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-917b99dd42",
+              "variableId": "var-420ecdd49b",
+              "question": {
+                "staticValue": "",
+                "dynamicValue": "Why are you looking to learn martial arts?",
+                "valueType": "dynamic"
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "I want to stay fit",
+                      "value": "I want to stay fit",
+                      "enabled": false
+                    },
+                    {
+                      "label": "I want to learn self defense",
+                      "value": "I want to learn self defense",
+                      "enabled": false
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            },
+            {
+              "id": "ins-afe745f086",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "nodeId": "nd-917b99dd42",
+              "destination": {
+                "node": "nd-ed870c9a8b"
+              },
+              "generative": {
+                "properties": {
+                  "condition": false
+                },
+                "suggestion": {
+                  "condition": "event.nlu.intents && event.nlu.intents.length > 0 && event.nlu.intents[0].id === 'qna-fallback'"
+                },
+                "label": ""
+              },
+              "label": ""
+            }
+          ],
+          "type": "standard",
+          "id": "nd-917b99dd42",
+          "name": "WhyYouHere",
+          "deletable": true,
+          "x": -330,
+          "y": -1005
+        },
+        {
+          "instructions": [
+            {
+              "id": "ins-9fe1fef0df",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "Hi! I'm Joseph, your AI martial arts assistant from Super Star Martial Arts 👋🏼",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-8466935a61"
+            },
+            {
+              "id": "ins-c056174466",
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": {
+                  "valueType": "dynamic",
+                  "dynamicValue": "I am here to answer any of your questions, and help you learn more about our martial arts school!",
+                  "staticValue": ""
+                },
+                "typing": {
+                  "valueType": "static",
+                  "staticValue": true
+                }
+              },
+              "nodeId": "nd-8466935a61"
+            },
+            {
+              "id": "ins-ce3c4bdc9a",
+              "type": "capture",
+              "entityId": "prompts://SingleChoice/v1",
+              "entityName": "Single Choice",
+              "nodeId": "nd-8466935a61",
+              "variableId": "var-694713de16",
+              "question": {
+                "valueType": "dynamic",
+                "dynamicValue": " What brought you here today?",
+                "staticValue": ""
+              },
+              "validation": {
+                "validators": []
+              },
+              "choice": {
+                "options": {
+                  "valueType": "static",
+                  "staticValue": [
+                    {
+                      "label": "Martial arts for myself",
+                      "value": "Martial arts for myself",
+                      "enabled": true
+                    },
+                    {
+                      "label": "Martial arts for my child",
+                      "value": "Martial arts for my child",
+                      "enabled": true
+                    }
+                  ],
+                  "dynamicValue": ""
+                }
+              },
+              "retry": {
+                "maxRetries": 2,
+                "retryMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "cancellation": {
+                "cancellable": true,
+                "confirmCancel": true,
+                "confirmCancelMessage": {
+                  "staticValue": "",
+                  "dynamicValue": "",
+                  "valueType": "static"
+                }
+              },
+              "handleFailure": false,
+              "historyLookback": 0,
+              "skipIfAlreadyFilled": false,
+              "transitions": [
+                {
+                  "id": "trs-0f1abf8bf9",
+                  "type": "transition",
+                  "label": "Martial arts for myself",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Martial arts for myself"
+                  },
+                  "destination": {
+                    "node": "nd-917b99dd42"
+                  }
+                },
+                {
+                  "id": "trs-38408cc8fc",
+                  "type": "transition",
+                  "label": "Martial arts for my child",
+                  "condition": {
+                    "type": "expression",
+                    "payload": "__CHOICE=Martial arts for my child"
+                  },
+                  "destination": {
+                    "node": "nd-ee88ede1b6"
+                  }
+                }
+              ],
+              "prompt": {
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are ExtractGPT and your only goal is to generate useful content in JSON format for developers to parse and use. You don't know any other language than JSON."
+                  },
+                  {
+                    "role": "user",
+                    "content": "```typescript\n/** The user answer to the question \"Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\nagent: Which one would you like? Choices: [ 1) Red Apple, 2) Yellow Apple, 3) Dark Banana ]\nuser: I will go with the second one please\n\"\"\""
+                  },
+                  {
+                    "role": "assistant",
+                    "content": "{\"choice\":\"Yellow Apple\"}"
+                  },
+                  {
+                    "role": "user",
+                    "content": "\nNow, forget about the previous transcripts. These were just examples, don't consider those as valid transcripts for this new task.\n\n###\n\nThe current Date is {{CURRENT_DATE_TIME}}.\n\nAt this point of the conversation, I need require the user to fill the output in following JSON output to complete the task.\nIf more than one property, try to extract each of them the best you can.\n\n```typescript\n/** The user answer to the question \"{{QUESTION}}\" */\ninterface Output = { choice: {{CHOICES_TYPINGS}} }\n```\n\nHere is a conversation between me and a user. Transcript:\n\"\"\"\n(...)\n{{TRANSCRIPT}}\n\"\"\"\n\nIn the last user message, here are the entities found:\n\"\"\"\nENTITIES_IDENTIFIED\n\"\"\"\n\nI need you to extract from the conversation transcript above the values the user has provided.\nIf the user has not provided the information I need, I need you to set the value of the missing answer properties to null.\nHave some tolerance to typos and variations in how the user selects from the possible values.\nNow, please reply to me with the above JSON output and nothing but JSON.\nYou should not explain your answer and should not talk back to me. Just JSON."
+                  }
+                ],
+                "model": "gpt-3.5-turbo",
+                "temperature": 0,
+                "signatureVersion": "Apr-2023",
+                "signature": "mtK2Lhb0B4CQ5dyrLhQTUVz92IwGSNQFkflVnVEWqN1DvH+02zPs3+OoQ2BUBCNocMeYC/5x/BPvmqVwqftVbZKSvVfFfJGMoAsSDPA5lxl8QDJD0vMOIO5bjuCTSvsoXdOZ8UCWU+trs50tPN+me5VjcLYGnQwWsVLUiqPyK4nJQYyymp9lqrZcedQ6wGoRs5r9ti1OcUy0msfw044O8RDtVo0dl52o6/zF4BAP40rDAwNsNIBSLnH6N1fXEE6Dy2Fe2cK7pKXvPS3ePDJYB2WyQC6M+Ps4Tl4yWN3wa8rVdf3w0bcrF1Wue5Xbyz4mxQ16fajq84xi2jeEKSpVCg=="
+              }
+            }
+          ],
+          "type": "standard",
+          "id": "nd-8466935a61",
+          "name": "Hello",
+          "deletable": true,
+          "x": -810,
+          "y": -855
+        },
+        {
+          "id": "nd-6815ca5136",
+          "name": "Start",
+          "type": "start",
+          "deletable": false,
+          "instructions": [
+            {
+              "id": "trs-b242207c4d",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "nd-8466935a61"
+              }
+            }
+          ],
+          "x": -1125,
+          "y": -705
+        },
+        {
+          "id": "nd-1c14e7a9d5",
+          "name": "End",
+          "type": "end",
+          "deletable": false,
+          "instructions": [
+            {
+              "id": "trs-5c1f53c076",
+              "type": "transition",
+              "condition": {
+                "type": "expression",
+                "payload": "true"
+              },
+              "destination": {
+                "node": "END"
+              }
+            }
+          ],
+          "x": 1530,
+          "y": -705
+        }
+      ],
+      "parentFolder": "root"
+    }
+  ],
+  "intents": [
+    {
+      "id": "int-yes",
+      "name": "yes",
+      "utterances_with_slots": [
+        "yes",
+        "yeah",
+        "absolutely",
+        "i'd like to",
+        "sure ",
+        "hmm probably",
+        "yup",
+        "ok"
+      ]
+    },
+    {
+      "id": "int-no",
+      "name": "no",
+      "utterances_with_slots": [
+        "no",
+        "i don't want to",
+        "absolutely not",
+        "nah",
+        "nope",
+        "not really",
+        "not sure",
+        "no thanks"
+      ]
+    },
+    {
+      "id": "int-cancel",
+      "name": "cancel",
+      "utterances_with_slots": [
+        "cancel",
+        "abort",
+        "abandon",
+        "i want to cancel",
+        "forget about this",
+        "leave",
+        "stop",
+        "quit",
+        "you know what, nevermind",
+        "forget it"
+      ]
+    }
+  ],
+  "list_entities": [],
+  "pattern_entities": [],
+  "actions": [],
+  "hooks": [],
+  "qnas": [],
+  "knowledge_base": [
+    {
+      "dataSources": [
+        {
+          "created_on": 1687260659775,
+          "data": {
+            "documents": []
+          },
+          "disabled": false,
+          "id": "ds-50e7682494",
+          "type": "document"
+        }
+      ],
+      "description": "This is general information about [ENTER BUSINESS NAME], a [TYPE OF BUSINESS] in [COUNTRY].",
+      "id": "kb-e15e5b9046",
+      "name": "Super Star Martial Arts KB",
+      "parentFolder": "root"
+    }
+  ],
+  "folders": [],
+  "cloudBot": {
+    "id": "25868823-03f8-4059-89d1-329e03b97d75",
+    "name": "from-scratch",
+    "createdAt": "2023-05-25T17:53:52.167Z",
+    "updatedAt": "2023-06-20T12:55:30.759Z",
+    "configuration": {
+      "data": {},
+      "schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    "integrations": {
+      "87b01760-ede8-49d5-afc6-6afc0d0d1bdb": {
+        "enabled": true,
+        "name": "webchat",
+        "version": "0.2.0",
+        "webhookUrl": "https://webhook.botpress.cloud/43af2109-9c84-4352-a07e-afb558c304d5",
+        "configuration": {
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "adminKey": "u5ecGAmIHKir6dOSzjEByxWLM733Uy6OL6OVyK1PJzS86dv8ik0KpkFWwf4cAtXicJv98Kox4ZvuS6EBGETe6qBhiQRHXsxS2cZ1k9DHQkwPPpGlFgHVVtLnNKz2aUmP",
+          "clientId": "25868823-03f8-4059-89d1-329e03b97d75",
+          "clientToken": "66ba5b17-124b-4643-9b62-580311414b29.6+pFZOR4BiQB+nXvWpPsvy33UlkgSfp7uP7kIOaDY1+scwjaI7/9lx6+lhBK8x6zF9RqqMHfstphPZVOxXKio6Pc",
+          "botId": "25868823-03f8-4059-89d1-329e03b97d75",
+          "botName": "",
+          "avatarUrl": "",
+          "botConversationDescription": "",
+          "phoneNumber": "",
+          "termsConditions": "",
+          "privacyPolicy": "",
+          "emailAddress": "",
+          "website": "",
+          "composerPlaceholder": "",
+          "stylesheet": "",
+          "useSessionStorage": false,
+          "showBotInfoPage": false,
+          "enableConversationDeletion": false,
+          "showPoweredBy": true
+        },
+        "status": "registered",
+        "statusReason": null
+      }
+    },
+    "signingSecret": "bss_pgSVY97ZOD2f8ERrmyy4dH7yQEqo715lDpbR",
+    "states": {
+      "agentsBotVariables": {
+        "type": "bot",
+        "schema": {}
+      },
+      "agentsConversationVariables": {
+        "type": "conversation",
+        "schema": {}
+      },
+      "agentsUserVariables": {
+        "type": "user",
+        "schema": {}
+      },
+      "agentsWorkflowsVariables": {
+        "type": "conversation",
+        "schema": {}
+      },
+      "botVariables": {
+        "type": "bot",
+        "schema": {}
+      },
+      "context": {
+        "type": "conversation",
+        "schema": {}
+      },
+      "session": {
+        "type": "conversation",
+        "schema": {}
+      },
+      "userVariables": {
+        "type": "user",
+        "schema": {}
+      }
+    },
+    "message": {
+      "tags": {}
+    },
+    "user": {
+      "tags": {}
+    },
+    "conversation": {
+      "tags": {}
+    },
+    "events": {
+      "schedulev1": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "destination": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "destination"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "recurringEvents": {},
+    "deployedAt": "2023-06-20T12:55:30.758Z",
+    "medias": [],
+    "dev": false
+  },
+  "agents": {
+    "SummaryAgent": {
+      "enabled": true,
+      "config": {
+        "summaryMaxTokens": 100
+      }
+    },
+    "TranslatorAgent": {
+      "enabled": false,
+      "config": {
+        "detectLanguage": true
+      }
+    },
+    "KnowledgeAgent": {
+      "enabled": true,
+      "config": {
+        "answerOnStart": false
+      }
+    },
+    "PersonalityAgent": {
+      "enabled": false,
+      "config": {
+        "personality": ""
+      }
+    }
+  },
+  "models": {
+    "intent_model": {
+      "type": "openbook_v1",
+      "model_hash": "z2fuim",
+      "model_langs": [
+        "en"
+      ],
+      "model_endpoint": "https://api.botpress.cloud/v1/cognitive/openbook",
+      "training_started_on": "2023-06-20T11:36:45.051Z",
+      "training_status": "done",
+      "model_id": "9310977b567b4d2a.d208c1c3dae45987",
+      "training_progress": 1,
+      "training_ended_on": "2023-06-20T11:36:45.590Z"
+    }
+  }
+}
