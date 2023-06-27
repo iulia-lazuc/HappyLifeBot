@@ -1,0 +1,109 @@
+{
+    "welcome": [
+      {
+        "type": "text",
+        "content": "Welcome to the HappyLifeChat. I'm here to support you in your mental well-being. How can I assist you today?"
+      }
+    ],
+    "fallback": [
+      {
+        "type": "text",
+        "content": "I'm sorry, but I didn't understand that. Can you please rephrase your question?"
+      }
+    ],
+    "goodbye": [
+      {
+        "type": "text",
+        "content": "Thank you for chatting with the Therapy Chatbot. Remember, you're not alone, and help is always available. Take care!"
+      }
+    ],
+    "defaultFallback": [
+      {
+        "type": "text",
+        "content": "I'm sorry, but I'm currently unable to assist with that. If you have any mental health concerns, it's best to consult a mental health professional."
+      }
+    ],
+    "responses": {
+      "greetings": [
+        {
+          "type": "text",
+          "content": "Hello! How can I support you today?"
+        },
+        {
+          "type": "text",
+          "content": "Hi there! How can I assist you with your mental well-being?"
+        }
+      ],
+      "psychoeducation": [
+        {
+          "type": "text",
+          "content": "Did you know that taking care of your mental health is just as important as taking care of your physical health? It's essential to prioritize self-care and seek support when needed."
+        },
+        {
+          "type": "text",
+          "content": "Understanding mental health conditions can be helpful in managing them effectively. If you have any questions about specific conditions or treatment options, feel free to ask."
+        }
+      ],
+      "copingStrategies": [
+        {
+          "type": "text",
+          "content": "When dealing with stress or difficult emotions, practicing relaxation techniques such as deep breathing or mindfulness can be beneficial. Would you like me to guide you through a relaxation exercise?"
+        },
+        {
+          "type": "text",
+          "content": "Engaging in activities you enjoy, maintaining a healthy lifestyle, and seeking social support are all important for managing your mental well-being. Do you need suggestions for self-care practices?"
+        }
+      ],
+      "positiveThinking": [
+        {
+          "type": "text",
+          "content": "Our thoughts have a significant impact on our emotions. It's helpful to challenge negative thoughts and replace them with more positive and realistic ones. Would you like some tips on positive thinking?"
+        },
+        {
+          "type": "text",
+          "content": "Negative thinking patterns can be changed by reframing our thoughts. It takes practice, but it can lead to a more positive mindset. Can I provide you with some cognitive restructuring techniques?"
+        }
+      ],
+      "crisisHandling": [
+        {
+          "type": "text",
+          "content": "If you're in a crisis or feeling overwhelmed, it's crucial to reach out for immediate help. You can contact a helpline or emergency services in your area. Remember, you don't have to face it alone."
+        },
+        {
+          "type": "text",
+          "content": "If you're experiencing thoughts of self-harm or suicide, please don't hesitate to contact a helpline or a mental health professional. They are trained to provide the support you need."
+        }
+      ],
+      "thankYou": [
+        {
+          "type": "text",
+          "content": "You're welcome! Remember, I'm here to support you. If you have any more questions or need assistance in the future, feel free to reach out. Take care!"
+        },
+        {
+          "type": "text",
+          "content": "I'm glad I could help. Remember to practice self-care and seek support whenever you need it. If you have any further concerns, don't hesitate to ask. Wishing you well!"
+        }
+      ]
+    },
+    "intents": {
+      "greetings": {
+        "utterances": ["hello", "hi", "hey", "greetings"]
+      },
+      "psychoeducation": {
+        "utterances": ["mental health conditions", "information about mental health", "mental health treatment"]
+      },
+      "copingStrategies": {
+        "utterances": ["stress management", "relaxation techniques", "self-care practices"]
+      },
+      "positiveThinking": {
+        "utterances": ["positive thinking", "challenging negative thoughts", "reframing thoughts"]
+      },
+      "crisisHandling": {
+        "utterances": ["help in crisis", "emergency assistance", "suicidal thoughts"]
+      },
+      "thankYou": {
+        "utterances": ["thank you", "thanks", "appreciate your help"]
+      }
+    }
+  }
+  
